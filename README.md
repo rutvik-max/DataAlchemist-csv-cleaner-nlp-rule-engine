@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧪 Data Alchemist – Smart Data Validator & Rule Engine
 
-## Getting Started
+> 🚀 Built with Next.js 15 + AG Grid + Zod + Tailwind  
+> 🔧 Role: **AI/ML Product Engineer** | 🧠 Bonus: Natural-Language Rule Builder (No API Key Needed)
 
-First, run the development server:
+---
+
+## 🔍 Overview
+
+**Data Alchemist** is a no-code web app to clean, validate, and rule-check CSV/XLSX datasets.  
+It lets users:
+
+- Upload datasets  
+- Highlight and remove invalid rows  
+- Define rules (manually or with text input)  
+- Prioritize rules  
+- Export clean data + rule logic as `.csv`, `.json`, or `.zip`  
+
+> 💡 Designed as a technical showcase for SDE, Data, or AI/ML engineering roles.
+
+---
+
+## 🎯 Features
+
+✅ Upload `.csv` / `.xlsx` files  
+✅ Schema-based row validation using **Zod**  
+✅ Visual data grid using **AG Grid v34**  
+✅ **Manual rule builder** with:
+- Rule types: `no-collab`, `must-follow`, `skill-match`  
+- Weight slider (1–10)
+
+✅ **Natural Language Rule Generator**
+- Example: `John must follow Alice with priority 8`  
+- Generates structured JSON rule **without OpenAI**
+
+✅ Exports:
+- 🧼 `clean.csv` – valid rows only  
+- 📋 `rules.json` – all rules with priorities  
+- 📦 `bundle.zip` – includes both above  
+
+✅ Legacy AG Grid theming (no Quartz conflict)  
+✅ Fully offline – no `.env` or API key needed  
+
+---
+
+## 🧠 NLP Rule Generator Example
+
+**Input:**
+
+```text
+Alice must follow Bob with priority 9
+src/
+├── app/                 # Main page.tsx + layout
+├── components/
+│   ├── FileUploader.tsx  # Upload + parse + validate
+│   ├── GridView.tsx      # AG Grid setup
+│   └── RuleBuilder.tsx   # Manual + NLP rule UI
+├── lib/
+│   ├── schema.ts         # Zod schema for row validation
+│   └── download.ts       # CSV, JSON, and ZIP exporters
+└── pages/api/
+    └── nl-rule.ts        # Fake NLP parser (no OpenAI needed)
+# 1. Clone
+git clone https://github.com/<your-username>/data-alchemist.git
+cd data-alchemist
+
+# 2. Install dependencies
+npm install
+
+# 3. Start dev server
+npm run dev
+# Open http://localhost:3000
+
+---
+
+### ✅ What To Do Now:
+
+1. Replace `README.md` in your project root with the file above  
+2. Commit changes:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git add README.md
+git commit -m "📝 Updated README with full feature list + role info"
+git push
